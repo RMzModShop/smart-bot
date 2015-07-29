@@ -40,7 +40,7 @@ function getLatestCommit() {
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version")+11,latestVersion.indexOf("// @grant"));
 
                 latestVersion = parseFloat(latestVersion + 0.0000);
-                var myVersion = parseFloat(aposBotVersion + 0.0000); 
+                var myVersion = parseFloat(rageBotVersion + 0.0000); 
                 
                 if(latestVersion > myVersion)
                 {
@@ -70,7 +70,7 @@ console.log("Running Rage Bot!");
         }
     }
 
-    f.botList.push(["RageBot " + aposBotVersion, findDestination]);
+    f.botList.push(["RageBot " + rageBotVersion, findDestination]);
 
     var bList = g('#bList');
     g('<option />', {value: (f.botList.length - 1), text: "RageBot"}).appendTo(bList);

@@ -8,7 +8,7 @@
 // @editor      http://youtube.com/Ragemoddzz
 // ==/UserScript==
 
-var aposLoaderVersion = 1;
+var rageLoaderVersion = 1;
 
 var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
 function getLatestCommit() {
@@ -47,10 +47,10 @@ function getLatestCommit() {
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
                 latestVersion = parseFloat(latestVersion + 0.0000);
-                var myVersion = parseFloat(aposLoaderVersion + 0.0000);
+                var myVersion = parseFloat(rageLoaderVersion + 0.0000);
 
                 if (latestVersion > myVersion) {
-                    update("aposLoader", "loader.user.js", "https://github.com/rmzmodshop/smart-bot/blob/master/loader.user.js/");
+                    update("rageLoader", "loader.user.js", "https://github.com/rmzmodshop/smart-bot/blob/master/loader.user.js/");
                 }
                 console.log('Current loader.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });

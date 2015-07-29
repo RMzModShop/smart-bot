@@ -7,7 +7,7 @@
 // @editor      http://youtube.com/Ragemoddzz
 // ==/UserScript==
 
-var aposLauncherVersion = 1;
+var rageLauncherVersion = 1;
 
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
@@ -28,15 +28,15 @@ function getLatestCommit() {
             console.log("hmm: " + data["data"]["object"]["sha"]);
             sha = data["data"]["object"]["sha"];
 
-            window.jQuery.get('https://raw.githubusercontent.com/Apostolique/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+            window.jQuery.get('https://raw.githubusercontent.com/rmzmodshop/smart-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
                 var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
                 latestVersion = parseFloat(latestVersion + 0.0000);
-                var myVersion = parseFloat(aposLauncherVersion + 0.0000);
+                var myVersion = parseFloat(rageLauncherVersion + 0.0000);
 
                 if (latestVersion > myVersion) {
-                    update("aposLauncher", "launcher.user.js", "https://github.com/Apostolique/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
+                    update("rageLauncher", "launcher.user.js", "https://github.com/rmzmodshop/smart-bot/blob/" + sha + "/launcher.user.js/");
                 }
                 console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });
@@ -621,7 +621,7 @@ console.log("Running Bot Launcher!");
         //UPDATE
         if (getPlayer().length == 0 && !reviving && ~~(getCurrentScore() / 100) > 0) {
             console.log("Dead: " + ~~(getCurrentScore() / 100));
-            apos('send', 'pageview');
+            rage('send', 'pageview');
         }
 
         if (getPlayer().length == 0) {
@@ -2324,7 +2324,7 @@ console.log("Running Bot Launcher!");
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'apos');
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'rage');
 
-apos('create', 'UA-64394184-1', 'auto');
-apos('send', 'pageview');
+rage('create', 'UA-64394184-1', 'auto');
+rage('send', 'pageview');
