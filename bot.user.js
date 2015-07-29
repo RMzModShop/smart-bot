@@ -7,7 +7,7 @@
 // @editor      http://youtube.com/ragemoddzz
 // ==/UserScript==
 
-var aposBotVersion = 1;
+var rageBotVersion = 1337;
 
 //TODO: Team mode
 //      Detect when people are merging
@@ -27,7 +27,7 @@ Array.prototype.peek = function() {
 var sha = "efde0488cc2cc176db48dd23b28a20b90314352b";
 function getLatestCommit() {
     window.jQuery.ajax({
-            url: "https://api.github.com/repos/apostolique/Agar.io-bot/git/refs/heads/master",
+            url: "https://api.github.com/repos/rmzmodshop/smart-bot/git/refs/heads/master",
             cache: false,
             dataType: "jsonp"
         }).done(function(data) {
@@ -35,7 +35,7 @@ function getLatestCommit() {
             console.log("hmm: " + data["data"]["object"]["sha"]);
             sha = data["data"]["object"]["sha"];
 
-            $.get('https://raw.githubusercontent.com/Apostolique/Agar.io-bot/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+            $.get('https://raw.githubusercontent.com/rmzmodshop/smart-bot/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
                 var latestVersion = data.replace(/(\r\n|\n|\r)/gm,"");
                 latestVersion = latestVersion.substring(latestVersion.indexOf("// @version")+11,latestVersion.indexOf("// @grant"));
 
@@ -44,7 +44,7 @@ function getLatestCommit() {
                 
                 if(latestVersion > myVersion)
                 {
-                    update("aposBot", "bot.user.js", "https://github.com/Apostolique/Agar.io-bot/blob/" + sha + "/bot.user.js/");
+                    update("rageBot", "bot.user.js", "https://github.com/rmzmodshop/smart-bot/blob/" + sha + "/bot.user.js/");
                 }
                 console.log('Current bot.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });
@@ -53,10 +53,10 @@ function getLatestCommit() {
 }
 getLatestCommit();
 
-console.log("Running Apos Bot!");
+console.log("Running Rage Bot!");
 (function(f, g) {
     var splitDistance = 710;
-    console.log("Apos Bot!");
+    console.log("Rage Bot!");
 
     if (f.botList == null) {
         f.botList = [];
@@ -70,10 +70,10 @@ console.log("Running Apos Bot!");
         }
     }
 
-    f.botList.push(["AposBot " + aposBotVersion, findDestination]);
+    f.botList.push(["RageBot " + aposBotVersion, findDestination]);
 
     var bList = g('#bList');
-    g('<option />', {value: (f.botList.length - 1), text: "AposBot"}).appendTo(bList);
+    g('<option />', {value: (f.botList.length - 1), text: "RageBot"}).appendTo(bList);
 
     //Given an angle value that was gotten from valueAndleBased(),
     //returns a new value that scales it appropriately.
